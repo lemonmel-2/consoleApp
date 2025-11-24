@@ -1,0 +1,15 @@
+/home/chinfang/consoleApp/bin/Debug/net8.0/consoleApp
+/home/chinfang/consoleApp/bin/Debug/net8.0/consoleApp.deps.json
+/home/chinfang/consoleApp/bin/Debug/net8.0/consoleApp.runtimeconfig.json
+/home/chinfang/consoleApp/bin/Debug/net8.0/consoleApp.dll
+/home/chinfang/consoleApp/bin/Debug/net8.0/consoleApp.pdb
+/home/chinfang/consoleApp/obj/Debug/net8.0/consoleApp.GeneratedMSBuildEditorConfig.editorconfig
+/home/chinfang/consoleApp/obj/Debug/net8.0/consoleApp.AssemblyInfoInputs.cache
+/home/chinfang/consoleApp/obj/Debug/net8.0/consoleApp.AssemblyInfo.cs
+/home/chinfang/consoleApp/obj/Debug/net8.0/consoleApp.csproj.CoreCompileInputs.cache
+/home/chinfang/consoleApp/obj/Debug/net8.0/consoleApp.sourcelink.json
+/home/chinfang/consoleApp/obj/Debug/net8.0/consoleApp.dll
+/home/chinfang/consoleApp/obj/Debug/net8.0/refint/consoleApp.dll
+/home/chinfang/consoleApp/obj/Debug/net8.0/consoleApp.pdb
+/home/chinfang/consoleApp/obj/Debug/net8.0/consoleApp.genruntimeconfig.cache
+/home/chinfang/consoleApp/obj/Debug/net8.0/ref/consoleApp.dll
