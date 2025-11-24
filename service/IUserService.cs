@@ -1,8 +1,11 @@
-public interface IUserService
+namespace consoleApp.service
 {
-    public void register();
+    public interface IUserService
+    {
+        public string Auth(string userId, string pwd);
 
-    public void getUser(String userId);
+        public bool RecordNewScore(string userId, int score);
 
-
+        public User[] GetLeaderboard();
+    }
 }
