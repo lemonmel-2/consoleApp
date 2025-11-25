@@ -1,10 +1,10 @@
 public class Item
 {
-    private string name;
+    public string Name {get; set;}
 
-    private string category;
+    public string Category {get; set;}
 
-    private string src;
+    public string Src {get; set;}
 
     public Item(string name, string category, string src)
     {
@@ -13,7 +13,8 @@ public class Item
         this.Src = src;
     }
 
-    public string Name { get => name; set => name = value; }
-    public string Category { get => category; set => category = value; }
-    public string Src { get => src; set => src = value; }
+    public override string ToString()
+    {
+        return $"{Name} - {Category}";
+    }
 }

@@ -1,21 +1,29 @@
-public class User
+namespace consoleApp.model
 {
-    private string userId;
-
-    private string pwd;
-
-    private int highestScore;
-
-    private List<Item> items;
-
-    public User(string userId, string pwd)
+    public class User
     {
-        this.userId = userId;
-        this.pwd = pwd;
+        public string UserId { get; set; } 
+
+        public string Pwd { get; set; } 
+
+        public int HighestScore { get; set; } 
+
+        public List<Item> Items { get; set; }
+
+        public User(string userId, string pwd)
+        {
+            this.UserId = userId;
+            this.Pwd = pwd;
+            this.HighestScore = 0;
+            this.Items = new List<Item>();
+        }
+
+        public User(string userId, string pwd, int highestScore, List<Item> items)
+        {
+            this.UserId = userId;
+            this.Pwd = pwd;
+            this.HighestScore = highestScore;
+            this.Items = items;
+        }
     }
-    
-    public string UserId { get => userId; set => userId = value; }
-    public string Pwd { get => pwd; set => pwd = value; }
-    public int HighestScore { get => highestScore; set => highestScore = value; }
-    public List<Item> Items { get => items; set => items = value; }
 }
