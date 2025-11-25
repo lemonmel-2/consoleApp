@@ -1,3 +1,4 @@
+using consoleApp.model;
 using consoleApp.service;
 using consoleApp.service.impl;
 
@@ -15,7 +16,6 @@ namespace consoleApp.controller
         {
             string[] auth = authInfo.Split(" ");
             userId = _userService.Auth(auth[0], auth[1]);
-            Console.WriteLine(userId);
             return userId != null;
         }
 
@@ -31,6 +31,7 @@ namespace consoleApp.controller
         public void ShowItem()
         {
             Item[] items = _itemService.GetItems(userId);
+            Console.WriteLine("Your Backpack:");
             foreach(Item item in items)
             {
                 Console.WriteLine(item);
@@ -47,10 +48,11 @@ namespace consoleApp.controller
         public void ShowLeaderboard()
         {
             User[] users = _userService.GetLeaderboard();
-            Console.WriteLine("==============================");
+            Console.WriteLine("==========LEADERBOARD=========");
+            Console.WriteLine($"{"USER", -15} {"HIGHEST RECORD"}");
             foreach(User user in users)
             {
-                Console.WriteLine(user.UserId + " " + user.HighestScore);
+                Console.WriteLine($"{user.UserId, -15} {user.HighestScore, 14}");
             }
         }
 

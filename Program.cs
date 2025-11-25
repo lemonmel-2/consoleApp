@@ -18,7 +18,7 @@ while (!loggedIn)
 bool program = true;
 while (program)
 {
-    Console.WriteLine("Welcome to the game!");
+    Console.WriteLine("=====GAME MENU=====");
     Console.WriteLine("1. Record score");
     Console.WriteLine("2. Show user item");
     Console.WriteLine("3. Add new item");
