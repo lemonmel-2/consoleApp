@@ -1,3 +1,5 @@
+using consoleApp.model;
+
 public interface IUserRepo
 {
     public void AddUser(User user);

@@ -1,3 +1,5 @@
+using consoleApp.model;
+
 namespace consoleApp.service
 {
     public interface IUserService

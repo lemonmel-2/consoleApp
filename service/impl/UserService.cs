@@ -1,3 +1,4 @@
+using consoleApp.model;
 using consoleApp.service;
 
 namespace consoleApp.service.impl

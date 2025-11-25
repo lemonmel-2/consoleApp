@@ -1,22 +1,42 @@
+using consoleApp.model;
+
 public class UserRepo : IUserRepo
 {
+    readonly List<User> userList = new List<User>
+            {
+                new User("user1", "000000", 10000, new List<Item>()),
+                new User("user2", "000000", 20000, new List<Item>()),
+                new User("user3", "000000", 30000, new List<Item>()),
+                new User("user4", "000000", 40000, new List<Item>()),
+            };
     public void AddUser(User user)
     {
-        throw new NotImplementedException();
+        userList.Add(user);
     }
 
     public User[] GetTopUsers()
     {
-        throw new NotImplementedException();
+        User[] users = userList.OrderByDescending(user => user.HighestScore).ToArray();
+        return users;
     }
 
     public User GetUser(string userId)
     {
-        throw new NotImplementedException();
+        User user = userList.FirstOrDefault(user => user.UserId == userId);
+        return user;
     }
 
     public void UpdateUser(User user)
     {
-        throw new NotImplementedException();
+        try
+        {
+            User selectUser = userList.FirstOrDefault(u => u.UserId == user.UserId);
+            selectUser.HighestScore = user.HighestScore;
+            selectUser.Items = user.Items;
+        }
+        catch (ArgumentNullException)
+        {
+            Console.WriteLine("[UserRepo] User ID does not exist");
+        }
     }
 }

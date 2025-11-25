@@ -1,4 +1,4 @@
-using consoleApp.service;
+using consoleApp.model;
 
 namespace consoleApp.service.impl
 {
