@@ -1,12 +1,15 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using consoleApp.controller;
+using consoleApp.exception;
 
 GameController gameController = new GameController();
 
 bool loggedIn = false;
 while (!loggedIn)
 {
-    Console.WriteLine("Please login by enter [yourName][space][yourPassword]");
+    Console.WriteLine("Please login/register by enter [Number][space][yourName][space][yourPassword]");
+    Console.WriteLine("Example for login: 1 user1 000000");
+    Console.WriteLine("Example for register: 2 user1 000000");
     try
     {
         string authInfo = Console.ReadLine();

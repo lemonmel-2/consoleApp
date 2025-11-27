@@ -21,7 +21,7 @@ namespace consoleApp.service.impl
             return false;
         }
 
-        public string Auth(string userId, string pwd)
+        public string Login(string userId, string pwd)
         {
             User user = _userRepo.GetUser(userId);
             if (user == null)
@@ -40,6 +40,18 @@ namespace consoleApp.service.impl
         {
             User[] users = _userRepo.GetTopUsers();
             return users;
+        }
+
+        public string Register(string userId, string pwd)
+        {
+            User existingUser = _userRepo.GetUser(userId);
+            if (existingUser != null)
+            {
+                throw new GameException(ErrorCode.USER_ID_EXIST);
+            }
+            User newUser = new User(userId, pwd);
+            _userRepo.AddUser(newUser);
+            return userId;
         }
     }
 }

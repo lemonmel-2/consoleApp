@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using consoleApp.@enum;
 using consoleApp.exception;
 using consoleApp.model;
@@ -19,7 +20,17 @@ namespace consoleApp.controller
             try
             {
                 string[] auth = authInfo.Split(" ");
-                userId = _userService.Auth(auth[0], auth[1]);
+                if (!Enum.TryParse<AuthOperation>(auth[0], true, out var operation))
+                {
+                    throw new GameException(ErrorCode.PARAM_ILLEGAL);
+                }
+                if(operation == AuthOperation.LOGIN)
+                {
+                    userId = _userService.Login(auth[1], auth[2]);
+                }else if(operation == AuthOperation.REGISTER)
+                {
+                    userId = _userService.Register(auth[1], auth[2]);
+                }
                 return true;
             }
             catch(IndexOutOfRangeException)
@@ -76,6 +87,7 @@ namespace consoleApp.controller
                 throw new GameException(ErrorCode.PARAM_ILLEGAL);
             }
             _itemService.AddItem(userId, itemId);
+            Console.WriteLine("Item added to bag!");
         }
 
         public void ShowLeaderboard()
