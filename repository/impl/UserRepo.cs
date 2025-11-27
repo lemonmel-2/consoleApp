@@ -4,10 +4,10 @@ public class UserRepo : IUserRepo
 {
     readonly List<User> userList = new List<User>
             {
-                new User("user1", "000000", 10000, new List<Item>()),
-                new User("user2", "000000", 20000, new List<Item>()),
-                new User("user3", "000000", 30000, new List<Item>()),
-                new User("user4", "000000", 40000, new List<Item>()),
+                new User("user1", "000000", 10000),
+                new User("user2", "000000", 20000),
+                new User("user3", "000000", 30000),
+                new User("user4", "000000", 40000),
             };
     public void AddUser(User user)
     {

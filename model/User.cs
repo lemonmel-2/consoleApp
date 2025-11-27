@@ -8,22 +8,22 @@ namespace consoleApp.model
 
         public int HighestScore { get; set; } 
 
-        public List<Item> Items { get; set; }
+        public Dictionary<string, Item> Items { get; set; }
 
         public User(string userId, string pwd)
         {
             this.UserId = userId;
             this.Pwd = pwd;
             this.HighestScore = 0;
-            this.Items = new List<Item>();
+            this.Items = new Dictionary<string, Item>();
         }
 
-        public User(string userId, string pwd, int highestScore, List<Item> items)
+        public User(string userId, string pwd, int highestScore)
         {
             this.UserId = userId;
             this.Pwd = pwd;
             this.HighestScore = highestScore;
-            this.Items = items;
+            this.Items = new Dictionary<string, Item>();
         }
     }
 }
