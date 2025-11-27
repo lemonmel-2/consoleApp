@@ -2,11 +2,11 @@ namespace consoleApp.service
 {
     public interface IItemService
     {
-        public Item[] GetItems(String userId);
+        public Item[] GetItems(string userId);
 
-        public Item GenerateItem();
+        public Item GenerateItem(string userId);
 
-        public void AddItem(String userId, Item item);
+        public void AddItem(string userId, string itemId);
 
     }
 }

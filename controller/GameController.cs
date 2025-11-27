@@ -1,3 +1,5 @@
+using consoleApp.@enum;
+using consoleApp.exception;
 using consoleApp.model;
 using consoleApp.service;
 using consoleApp.service.impl;
@@ -6,43 +8,74 @@ namespace consoleApp.controller
 {
     public class GameController
     {
-        private readonly IItemService _itemService = new ItemService();
+        private static IItemService _itemService = new ItemService();
 
-        private readonly IUserService _userService = new UserService();
+        private static IUserService _userService = new UserService();
 
         private string userId;
 
         public bool Auth(string authInfo)
         {
-            string[] auth = authInfo.Split(" ");
-            userId = _userService.Auth(auth[0], auth[1]);
-            return userId != null;
+            try
+            {
+                string[] auth = authInfo.Split(" ");
+                userId = _userService.Auth(auth[0], auth[1]);
+                return true;
+            }
+            catch(IndexOutOfRangeException)
+            {
+                throw new GameException(ErrorCode.PARAM_ILLEGAL);
+            }
         }
 
-        public void RecordScore(int score)
+        public void RecordScore(string score)
         {
-           bool breakRecord =  _userService.RecordNewScore(userId, score);
-            if (breakRecord)
+            try
             {
-                Console.WriteLine("New highest record achieved! :"+score);
+                int scoreNumber = int.Parse(score);
+                bool breakRecord =  _userService.RecordNewScore(userId, scoreNumber);
+                if (breakRecord)
+                {
+                    Console.WriteLine("New highest record achieved! :"+score);
+                }
+            }
+            catch(FormatException)
+            {
+                throw new GameException(ErrorCode.PARAM_ILLEGAL);
             }
         }
 
         public void ShowItem()
         {
             Item[] items = _itemService.GetItems(userId);
-            Console.WriteLine("Your Backpack:");
-            foreach(Item item in items)
+            Console.WriteLine("==========INVENTORY===========");
+            if(items.Length == 0)
             {
-                Console.WriteLine(item);
+                Console.WriteLine("you have nothing in your backpack :(");
+            }
+            else
+            {
+                Console.WriteLine($"{"ITEM", -20} {"QUANTITY"}");
+                foreach(Item item in items)
+                {
+                    Console.WriteLine($"{item.Name, -20} {item.Quantity}");
+                }
             }
         }
 
-        public void AddItem()
+        public string GenerateItem()
         {
-            Item newItem = _itemService.GenerateItem();
-            _itemService.AddItem(userId, newItem);
-            Console.WriteLine("Congratulation! You received a "+newItem);
+            Item newItem = _itemService.GenerateItem(userId);
+            return newItem.ItemID;
+        }
+
+        public void AddItem(string itemId)
+        {
+            if(itemId == null)
+            {
+                throw new GameException(ErrorCode.PARAM_ILLEGAL);
+            }
+            _itemService.AddItem(userId, itemId);
         }
 
         public void ShowLeaderboard()
