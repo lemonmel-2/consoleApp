@@ -6,50 +6,67 @@ GameController gameController = new GameController();
 bool loggedIn = false;
 while (!loggedIn)
 {
-    Console.WriteLine("Please login/register by enter [yourName][space][yourPassword]");
-    string authInfo = Console.ReadLine();
-    loggedIn = gameController.Auth(authInfo);
-    if (!loggedIn)
+    Console.WriteLine("Please login by enter [yourName][space][yourPassword]");
+    try
     {
-        Console.WriteLine("Invalid credential :( Try again!");
+        string authInfo = Console.ReadLine();
+        loggedIn = gameController.Auth(authInfo);
+        Console.WriteLine("==Hello! Welcome to the game==");
+    }
+    catch(Exception e)
+    {
+        Console.WriteLine(e.Message);
     }
 }
 
 bool program = true;
 while (program)
 {
-    Console.WriteLine("=====GAME MENU=====");
+    Console.WriteLine("==========GAME MENU===========");
     Console.WriteLine("1. Record score");
     Console.WriteLine("2. Show user item");
-    Console.WriteLine("3. Add new item");
-    Console.WriteLine("4. Show leaderboard");
-    Console.WriteLine("5. Exit");
+    Console.WriteLine("3. Generate random item");
+    Console.WriteLine("4. Add new item");
+    Console.WriteLine("5. Show leaderboard");
+    Console.WriteLine("6. Exit");
     string choice = Console.ReadLine();
     switch (choice)
     {
         case "1":
-            Console.WriteLine("What's the new score?");
-            string score = Console.ReadLine();
             try
             {
-                int scoreNumber = int.Parse(score);
-                gameController.RecordScore(scoreNumber);
+                Console.WriteLine("What's the new score?");
+                string score = Console.ReadLine();
+                gameController.RecordScore(score);
             }
-            catch(System.FormatException)
+            catch (Exception e)
             {
-                Console.WriteLine("Invalid number!");
+                Console.WriteLine(e.Message);
             }
             break;
         case "2":
             gameController.ShowItem();
             break;
         case "3":
-            gameController.AddItem();
+            string itemId = gameController.GenerateItem();
+            Console.WriteLine(itemId + " is generated");
             break;
         case "4":
-            gameController.ShowLeaderboard();
+            try
+            {
+                Console.WriteLine("What's the new item?");
+                string item = Console.ReadLine();
+                gameController.AddItem(item);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             break;
         case "5":
+            gameController.ShowLeaderboard();
+            break;
+        case "6":
             program = false;
             break;
         default:

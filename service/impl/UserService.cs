@@ -1,3 +1,5 @@
+using consoleApp.@enum;
+using consoleApp.exception;
 using consoleApp.model;
 using consoleApp.service;
 
@@ -6,6 +8,7 @@ namespace consoleApp.service.impl
     public class UserService : IUserService
     {
         private readonly IUserRepo _userRepo = new UserRepo();
+        
         public bool RecordNewScore(string userId, int score)
         {
             User user = _userRepo.GetUser(userId);
@@ -21,11 +24,16 @@ namespace consoleApp.service.impl
         public string Auth(string userId, string pwd)
         {
             User user = _userRepo.GetUser(userId);
-            if (user != null && pwd == user.Pwd)
+            if (user == null)
             {
-                return user.UserId;
+                throw new GameException(ErrorCode.USER_NOT_EXIST);
             }
-            return null;
+            else if(user.Pwd != pwd)
+            {
+                throw new GameException(ErrorCode.INCORRECT_PASSWORD);
+            }
+
+            return userId;
         }
         
         public User[] GetLeaderboard()
