@@ -5,11 +5,17 @@ using consoleApp.model;
 
 public class UserRepo : IUserRepo
 {
+    
+    // singleton pattern to ensure only one instance of user repo
+    private static readonly UserRepo instance = new UserRepo();
+
+    public static UserRepo Instance => instance;
+
     private readonly List<User> userList;
 
     private readonly string filePath = "../consoleApp/repository/tempStorage/userDb.json";
 
-    public UserRepo()
+    private UserRepo()
     {
         if (File.Exists(filePath))
         {

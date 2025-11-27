@@ -6,7 +6,7 @@ namespace consoleApp.service.impl
 {
     public class ItemService : IItemService
     {
-        private static IUserRepo _userRepo = new UserRepo();
+        private static IUserRepo _userRepo = UserRepo.Instance;
 
         private static Random rand = new Random();
         private static Dictionary<string, string> itemsLibrary = new Dictionary<string, string>()

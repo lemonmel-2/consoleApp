@@ -1,13 +1,12 @@
 using consoleApp.@enum;
 using consoleApp.exception;
 using consoleApp.model;
-using consoleApp.service;
 
 namespace consoleApp.service.impl
 {
     public class UserService : IUserService
     {
-        private readonly IUserRepo _userRepo = new UserRepo();
+        private static IUserRepo _userRepo = UserRepo.Instance;
         
         public bool RecordNewScore(string userId, int score)
         {
