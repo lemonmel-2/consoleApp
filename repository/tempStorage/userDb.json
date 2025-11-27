@@ -1,0 +1,38 @@
+[
+  {
+    "UserId": "user1",
+    "Pwd": "000000",
+    "HighestScore": 10000,
+    "Items": {
+      "food002": {
+        "ItemID": "food002",
+        "Name": "carrot",
+        "Quantity": 1
+      }
+    }
+  },
+  {
+    "UserId": "user2",
+    "Pwd": "000000",
+    "HighestScore": 20000,
+    "Items": {}
+  },
+  {
+    "UserId": "user3",
+    "Pwd": "000000",
+    "HighestScore": 50000,
+    "Items": {}
+  },
+  {
+    "UserId": "user4",
+    "Pwd": "000000",
+    "HighestScore": 40000,
+    "Items": {}
+  },
+  {
+    "UserId": "user10",
+    "Pwd": "000000",
+    "HighestScore": 0,
+    "Items": {}
+  }
+]

@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace consoleApp.model
 {
     public class User
@@ -18,12 +20,14 @@ namespace consoleApp.model
             this.Items = new Dictionary<string, Item>();
         }
 
-        public User(string userId, string pwd, int highestScore)
+
+        [JsonConstructor]
+        public User(string userId, string pwd, int highestScore, Dictionary<string, Item> items)
         {
             this.UserId = userId;
             this.Pwd = pwd;
             this.HighestScore = highestScore;
-            this.Items = new Dictionary<string, Item>();
+            this.Items = items;
         }
     }
 }

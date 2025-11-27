@@ -1,17 +1,31 @@
+using System.Text.Json;
+using consoleApp.@enum;
+using consoleApp.exception;
 using consoleApp.model;
 
 public class UserRepo : IUserRepo
 {
-    readonly List<User> userList = new List<User>
-            {
-                new User("user1", "000000", 10000),
-                new User("user2", "000000", 20000),
-                new User("user3", "000000", 30000),
-                new User("user4", "000000", 40000),
-            };
+    private readonly List<User> userList;
+
+    private readonly string filePath = "../consoleApp/repository/tempStorage/userDb.json";
+
+    public UserRepo()
+    {
+        if (File.Exists(filePath))
+        {
+            string json = File.ReadAllText(filePath);
+            userList = JsonSerializer.Deserialize<List<User>>(json)?? new List<User>();
+        }
+        else
+        {
+            SaveChanges();
+        }
+    }
+
     public void AddUser(User user)
     {
         userList.Add(user);
+        SaveChanges();
     }
 
     public User[] GetTopUsers()
@@ -33,10 +47,24 @@ public class UserRepo : IUserRepo
             User selectUser = userList.FirstOrDefault(u => u.UserId == user.UserId);
             selectUser.HighestScore = user.HighestScore;
             selectUser.Items = user.Items;
+            SaveChanges();
         }
         catch (ArgumentNullException)
         {
             Console.WriteLine("[UserRepo] User ID does not exist");
+        }
+    }
+
+    private void SaveChanges()
+    {
+        try
+        {
+            string json = JsonSerializer.Serialize(userList, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(filePath, json);
+        }
+        catch (IOException)
+        {
+            throw new GameException(ErrorCode.DATABASE_ERROR);
         }
     }
 }
