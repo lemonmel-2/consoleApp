@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using consoleApp.@enum;
 using consoleApp.exception;
 using consoleApp.model;
