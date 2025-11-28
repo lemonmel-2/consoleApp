@@ -22,4 +22,5 @@ This is a C# console application that acts as a temporary backend for a frontend
     - To register:
     `2 username password`
 4. Play around!
-<img width="682" height="92" alt="image" src="https://github.com/user-attachments/assets/7ad3b2e1-373c-4aba-b682-90712fc285bd" />
+<img width="826" height="120" alt="image" src="https://github.com/user-attachments/assets/0a053d76-f6f4-4e44-9da0-8a414ac58020" />
+
