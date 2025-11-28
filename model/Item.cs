@@ -14,6 +14,6 @@ public class Item
 
     public override string ToString()
     {
-        return $"{Name} - {Quantity}";
+        return $"{ItemID} : {Name}";
     }
 }

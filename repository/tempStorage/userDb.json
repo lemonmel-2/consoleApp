@@ -3,12 +3,22 @@
     "UserId": "user1",
     "Pwd": "KKVjo3kG8x35N2Y/YmESbTra3xQ9R9FQOMl3NNqGoTM=",
     "Salt": "qczUPerFoJ8jnXjQ/8SLkg==",
-    "HighestScore": 2300,
+    "HighestScore": 3100,
     "Items": {
       "invader001": {
         "ItemID": "invader001",
         "Name": "purple invader",
-        "Quantity": 2
+        "Quantity": 3
+      },
+      "food002": {
+        "ItemID": "food002",
+        "Name": "carrot",
+        "Quantity": 1
+      },
+      "food001": {
+        "ItemID": "food001",
+        "Name": "burger",
+        "Quantity": 3
       }
     }
   },

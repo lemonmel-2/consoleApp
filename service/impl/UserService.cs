@@ -59,6 +59,7 @@ namespace consoleApp.service.impl
             return userId;
         }
 
+        // Encrypt using into hashed string by random generated salt
         private Dictionary<string, string> Encrypt(string pwd)
         {
             Dictionary<string, string> hashDetails = new Dictionary<string, string>();
@@ -70,6 +71,7 @@ namespace consoleApp.service.impl
             return hashDetails;
         }
 
+        // Encrypt paswword into hashed string by user database salt
         private string Encrypt(string pwd, string salt)
         {
             byte[] pwdByte = System.Text.Encoding.UTF8.GetBytes(pwd);
