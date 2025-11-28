@@ -76,12 +76,13 @@ namespace consoleApp.controller
         public string GenerateItem()
         {
             Item newItem = _itemService.GenerateItem(userId);
+            Console.WriteLine(newItem + " is generated!");
             return newItem.ItemID;
         }
 
         public void AddItem(string itemId)
         {
-            if(itemId == null)
+            if(itemId == null || itemId == "")
             {
                 throw new GameException(ErrorCode.PARAM_ILLEGAL);
             }

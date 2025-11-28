@@ -50,15 +50,14 @@ while (program)
             gameController.ShowItem();
             break;
         case "3":
-            string itemId = gameController.GenerateItem();
-            Console.WriteLine(itemId + " is generated");
+            gameController.GenerateItem();
             break;
         case "4":
             try
             {
-                Console.WriteLine("What's the new item?");
-                string item = Console.ReadLine();
-                gameController.AddItem(item);
+                Console.WriteLine("What's the new item? Enter item id");
+                string itemId = Console.ReadLine();
+                gameController.AddItem(itemId);
             }
             catch(Exception e)
             {
