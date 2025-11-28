@@ -1,38 +1,36 @@
 [
   {
     "UserId": "user1",
-    "Pwd": "000000",
-    "HighestScore": 10000,
+    "Pwd": "KKVjo3kG8x35N2Y/YmESbTra3xQ9R9FQOMl3NNqGoTM=",
+    "Salt": "qczUPerFoJ8jnXjQ/8SLkg==",
+    "HighestScore": 2300,
     "Items": {
-      "food002": {
-        "ItemID": "food002",
-        "Name": "carrot",
-        "Quantity": 1
+      "invader001": {
+        "ItemID": "invader001",
+        "Name": "purple invader",
+        "Quantity": 2
       }
     }
   },
   {
     "UserId": "user2",
-    "Pwd": "000000",
-    "HighestScore": 20000,
+    "Pwd": "HbuC8c4yoqXLH0fJIjGyyksuc55gFc8ArnKbeGyVMcw=",
+    "Salt": "QgNevCKA7zFgN2Q77KsIDA==",
+    "HighestScore": 2000,
     "Items": {}
   },
   {
     "UserId": "user3",
-    "Pwd": "000000",
-    "HighestScore": 50000,
+    "Pwd": "CWCisDB8nKYqcIvMZP3c/HlspHm8/Ww6Kye4Ci3AGew=",
+    "Salt": "sOqbfZon4Q07DLud6SYfhQ==",
+    "HighestScore": 3000,
     "Items": {}
   },
   {
     "UserId": "user4",
-    "Pwd": "000000",
-    "HighestScore": 40000,
-    "Items": {}
-  },
-  {
-    "UserId": "user10",
-    "Pwd": "000000",
-    "HighestScore": 0,
+    "Pwd": "uYZN3HYeZcOO2zQjZ7MxXjTnDISruSqY\u002Bx6RxO9wvpo=",
+    "Salt": "MmlY6erVYRCtcLhm3mxUVw==",
+    "HighestScore": 2500,
     "Items": {}
   }
 ]
