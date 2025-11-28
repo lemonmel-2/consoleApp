@@ -24,6 +24,7 @@ public class UserRepo : IUserRepo
         }
         else
         {
+            userList = new List<User>();
             SaveChanges();
         }
     }
@@ -42,8 +43,15 @@ public class UserRepo : IUserRepo
 
     public User GetUser(string userId)
     {
-        User user = userList.FirstOrDefault(user => user.UserId == userId);
-        return user;
+        try
+        {
+            User user = userList.FirstOrDefault(user => user.UserId == userId);
+            return user;
+        }
+        catch(ArgumentNullException)
+        {
+            throw new GameException(ErrorCode.USER_NOT_EXIST);
+        }
     }
 
     public void UpdateUser(User user)
@@ -57,7 +65,7 @@ public class UserRepo : IUserRepo
         }
         catch (ArgumentNullException)
         {
-            Console.WriteLine("[UserRepo] User ID does not exist");
+            throw new GameException(ErrorCode.USER_NOT_EXIST);
         }
     }
 
