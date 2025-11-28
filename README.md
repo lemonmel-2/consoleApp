@@ -18,7 +18,8 @@ This is a C# console application that acts as a temporary backend for a frontend
 2. Run project by `dotnet run`
 3. Login or register
     - To Login (This is a test account created):
-    > 1 user1 000000
+    `1 user1 000000`
     - To register:
-    > 2 username password
+    `2 username password`
 4. Play around!
+<img width="682" height="92" alt="image" src="https://github.com/user-attachments/assets/7ad3b2e1-373c-4aba-b682-90712fc285bd" />
